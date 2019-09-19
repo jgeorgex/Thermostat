@@ -1,7 +1,7 @@
 function Thermostat() {
   this.temperature = 20;
-  // this.minTemperature = 10;
-  // this.maxTemperature = 25;
+  this.minTemperature = 10;
+  this.maxTemperature = 25;
   this.powerSavingMode = 'on';
 };
 
@@ -36,6 +36,3 @@ Thermostat.prototype.checkUsage = function () {
     return 'high-usage'
   }
 }
-
-
-

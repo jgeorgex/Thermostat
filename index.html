@@ -1,23 +1,64 @@
-<form>
-<input type="submit" value="On">
+<!-- <form>
+<input type="submit" value="On" id="On">
 <input type="submit" value="Off">
 <input type="submit" value="temp up">
 <input type="submit" value="temp down">
 <input type="submit" value="Reset">
-</form>
+</form> -->
 
-<h2> Thermostat set to </h2><h2 id="temperature">
+<section>
+  <button id="PSM">Power Saving Mode</button>
+  <button id="up">Temp +</button>
+  <button id="down">Temp -</button>
+  <button id="reset">Reset -</button>
+</section>
+
+
+<h2> Thermostat set to <h2 id="temperature">
 <h2> Power saving mode set to </h2><h2 id="powerMode">
 <h2> Usage set to </h2><h2 id="usage">
-<script src="src/Thermostat.js"></script>
+<h2> Max temp set to </h2><h2 id="maxTemp">
+<h2> Min temp set to </h2><h2 id="minTemp">
 
+      <script src="src/Thermostat.js"></script>
+      <script src="src/jquery.js"></script>
+      <script>
+        $( document ).ready(function() {
+          t = new Thermostat;
+          update = function() {
+            $("#temperature").text(t.temperature);
+            $("#powerMode").text(t.powerSavingMode);
+            $("#usage").text(t.checkUsage());
+            $("#maxTemp").text(t.maxTemperature);
+            $("#minTemp").text(t.minTemperature);
+          };
+          update()
+        });
+        $("#up").click(function(event) {
+          t.increase()
+          update()
+        });
+        $("#down").on('click', function() {
+          t.decrease()
+          update()
+        });
+        $("#reset").on('click', function() {
+          t.reset()
+          update()
+        });
+        $("#PSM").on('click', function() {
+          t.changePowerSaving()
+          update()
+        });
 
-<!--
-on /off
-temp up
-temp down
-reset
+      </script>
 
-// temp
-// usage
-// power saving mode -->
+      <!--
+      on /off
+      temp up
+      temp down
+      reset
+
+      // temp
+      // usage
+      // power saving mode -->
