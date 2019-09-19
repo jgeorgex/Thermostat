@@ -1,10 +1,11 @@
-<!-- <form>
-<input type="submit" value="On" id="On">
-<input type="submit" value="Off">
-<input type="submit" value="temp up">
-<input type="submit" value="temp down">
-<input type="submit" value="Reset">
-</form> -->
+<section>
+  <select id="current-city">
+    <option value="2643741">London</option>
+    <option value="5128638">New York</option>
+    <option value="2988506">Paris</option>
+    <option value="1850147">Tokyo</option>
+  </select>
+</section>
 
 <section>
   <button id="PSM">Power Saving Mode</button>
@@ -14,51 +15,53 @@
 </section>
 
 
-<h2 style="display:inline"> Thermostat set to <h2 style="display: inline" id="temperature">
-<h2> Power saving mode set to </h2><h2 id="powerMode">
-<h2> Usage set to </h2><h2 id="usage">
-<h2> Max temp set to </h2><h2 id="maxTemp">
-<h2> Min temp set to </h2><h2 id="minTemp">
+<h2> Thermostat set to <span id="temperature"></span></h2>
+  <h2> Power saving mode set to <span id="powerMode"></span></h2>
+    <h2> Usage set to <span id="usage"> </span></h2>
+      <h2> Max temp set to <span id="maxTemp"> </span></h2>
+        <h2> Min temp set to <span id="minTemp"> </span></h2>
+          <h2> Current temperature in selected city is <span id="weatherapi"> </span></h2>
 
-      <script src="src/Thermostat.js"></script>
-      <script src="src/jquery.js"></script>
-      <script>
-        $( document ).ready(function() {
-          t = new Thermostat;
-          update = function() {
-            $("#temperature").text(t.temperature);
-            $("#powerMode").text(t.powerSavingMode);
-            $("#usage").text(t.checkUsage());
-            $("#maxTemp").text(t.maxTemperature);
-            $("#minTemp").text(t.minTemperature);
-          };
-          update()
-        });
-        $("#up").click(function(event) {
-          t.increase()
-          update()
-        });
-        $("#down").on('click', function() {
-          t.decrease()
-          update()
-        });
-        $("#reset").on('click', function() {
-          t.reset()
-          update()
-        });
-        $("#PSM").on('click', function() {
-          t.changePowerSaving()
-          update()
-        });
+            <script src="src/Thermostat.js"></script>
+            <script src="src/jquery.js"></script>
+            <script>
+              $( document ).ready(function() {
+                t = new Thermostat;
+                update = function() {
+                  $("#temperature").text(t.temperature);
+                  $("#powerMode").text(t.powerSavingMode);
+                  $("#usage").text(t.checkUsage());
+                  $("#maxTemp").text(t.maxTemperature);
+                  $("#minTemp").text(t.minTemperature);
+                };
+                update()
+                $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&APPID=9758d85b3e75dcb7d89d5899c106498a",function(data){
+                  $("#weatherapi").text(data.main.temp);
+                })
+              });
+              $("#up").click(function(event) {
+                t.increase()
+                update()
+              });
+              $("#down").on('click', function() {
+                t.decrease()
+                update()
+              });
+              $("#reset").on('click', function() {
+                t.reset()
+                update()
+              });
+              $("#PSM").on('click', function() {
+                t.changePowerSaving()
+                update()
+              });
+              $('#current-city').change(function() {
+                var id = $('#current-city').val();
+                $.get("http://api.openweathermap.org/data/2.5/weather?id=" + id + "&units=metric&APPID=9758d85b3e75dcb7d89d5899c106498a",function(data){
+                  $("#weatherapi").text(data.main.temp);
+                });
+              })
 
-      </script>
+              </script>
 
-      <!--
-      on /off
-      temp up
-      temp down
-      reset
-
-      // temp
-      // usage
-      // power saving mode -->
+      <!-- 9758d85b3e75dcb7d89d5899c106498a -->
