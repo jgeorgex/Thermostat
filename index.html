@@ -32,18 +32,32 @@
   </tr>
 </table>
 <section>
-  <button id="PSM">Power Saving Mode</button>
+
   <!-- <button id="up">Temp +</button>
   <button id="down">Temp -</button>
   <button id="reset">Reset -</button> -->
 </section>
 
+<table>
+  <tr>
+    <td> Max temp </td>
+    <td id="maxTemp"></td>
+    </tr>
+  <tr>
+    <td> Min temp </td>
+    <td id="minTemp"></td>
+  </tr>
+  <tr>
+    <td> ENERGY </td>
+    <td id="usage"></td>
+  </tr>
+  <tr>
+    <td><button id="PSM">Power Saving Mode</button></td>
+    <td id="powerMode"></td>
+  </tr>
 
-<!-- <h2> Thermostat set to <span id="temperature"></span></h2> -->
-  <h2> Power saving mode set to <span id="powerMode"></span></h2>
-    <h2> Usage set to <span id="usage"> </span></h2>
-      <h2> Max temp set to <span id="maxTemp"> </span></h2>
-        <h2> Min temp set to <span id="minTemp"> </span></h2>
+</table>
+
           <h2> Current temperature in selected city is <span id="weatherapi"> </span></h2>
 
             <script src="src/Thermostat.js"></script>
