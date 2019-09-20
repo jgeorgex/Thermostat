@@ -11,19 +11,10 @@
   </style>
 </head>
 <body>
-<section>
-  <select id="current-city">
-    <option value="2643741">London</option>
-    <option value="5128638">New York</option>
-    <option value="2988506">Paris</option>
-    <option value="1850147">Tokyo</option>
-  </select>
-</section>
-
-<table>
+<table align="center">
   <tr>
     <td colspan="2">TEMP</td>
-    <td id="temperature"></td>
+    <td><a id="temperature"></a> &#176;C</td>
   </tr>
     <td><button id="reset">Reset -</button></td>
     <td><button id="down">Temp -</button></td>
@@ -31,14 +22,8 @@
   <tr>
   </tr>
 </table>
-<section>
-
-  <!-- <button id="up">Temp +</button>
-  <button id="down">Temp -</button>
-  <button id="reset">Reset -</button> -->
-</section>
-
-<table>
+<br>
+<table align="center">
   <tr>
     <td> Max temp </td>
     <td id="maxTemp"></td>
@@ -55,10 +40,23 @@
     <td><button id="PSM">Power Saving Mode</button></td>
     <td id="powerMode"></td>
   </tr>
-
 </table>
-
-          <h2> Current temperature in selected city is <span id="weatherapi"> </span></h2>
+<br>
+<table align="center">
+  <tr>
+    <td>LOCATION</td>
+    <td><select id="current-city">
+      <option value="2643741">London</option>
+      <option value="5128638">New York</option>
+      <option value="2988506">Paris</option>
+      <option value="1850147">Tokyo</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td>Current Temp</td>
+    <td><a id="weatherapi"></a> &#176;C</td>
+  </tr>
+</table>
 
             <script src="src/Thermostat.js"></script>
             <script src="src/jquery.js"></script>
