@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<head>
+  <title>THERMOSTAT</title>
+  <style>
+  body {
+    background-color: #66ff99;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
 <section>
   <select id="current-city">
     <option value="2643741">London</option>
@@ -7,15 +20,26 @@
   </select>
 </section>
 
+<table>
+  <tr>
+    <td colspan="2">TEMP</td>
+    <td id="temperature"></td>
+  </tr>
+    <td><button id="reset">Reset -</button></td>
+    <td><button id="down">Temp -</button></td>
+    <td><button id="up">Temp +</button></td>
+  <tr>
+  </tr>
+</table>
 <section>
   <button id="PSM">Power Saving Mode</button>
-  <button id="up">Temp +</button>
+  <!-- <button id="up">Temp +</button>
   <button id="down">Temp -</button>
-  <button id="reset">Reset -</button>
+  <button id="reset">Reset -</button> -->
 </section>
 
 
-<h2> Thermostat set to <span id="temperature"></span></h2>
+<!-- <h2> Thermostat set to <span id="temperature"></span></h2> -->
   <h2> Power saving mode set to <span id="powerMode"></span></h2>
     <h2> Usage set to <span id="usage"> </span></h2>
       <h2> Max temp set to <span id="maxTemp"> </span></h2>
@@ -26,5 +50,5 @@
             <script src="src/jquery.js"></script>
             <script src="src/jq_functions.js"></script>
             <script>runPage()</script>
-
+</body>
       <!-- 9758d85b3e75dcb7d89d5899c106498a -->
